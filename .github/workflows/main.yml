@@ -1,0 +1,17 @@
+name: CI Frontend
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Usar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    - name: Instalar dependencias
+      run: npm install
+    - name: Construir proyecto
+      run: npm run build
